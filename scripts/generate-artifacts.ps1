@@ -3,6 +3,7 @@ param(
     [string]$ArtifactsStorageAccountName = 'matestorage123'
 )
 
+
 # default script values
 $rgName = "mate-azure-task-10"
 $taskName = "task10"
