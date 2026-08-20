@@ -143,20 +143,20 @@ foreach ($virtualMachine in $virtualMachines) {
         Write-Output "`u{2705} Checked Virtual Machine OS image publisher - OK" 
     } else { 
         Write-Output `u{1F914}
-        throw "Virtual Machine uses OS image from unknown published. Please make sure that your script creates a VM from image with friendly name 'Ubuntu2204' and try again."
+        throw "Virtual Machine uses OS image from unknown published. Please make sure that your script creates a VM from image with friendly name 'Ubuntu2404' and try again."
     }
-    if ($virtualMachine.properties.storageProfile.imageReference.offer.Contains('ubuntu-server') -and $virtualMachine.properties.storageProfile.imageReference.sku.Contains('22_04')) { 
+    if ($virtualMachine.properties.storageProfile.imageReference.offer.Contains('ubuntu-24_04-lts') -and $virtualMachine.properties.storageProfile.imageReference.sku.Contains('server')) {
         Write-Output "`u{2705} Checked Virtual Machine OS image offer - OK"
-    } else { 
+    } else {
         Write-Output `u{1F914}
-        throw "Virtual Machine uses wrong OS image. Please make sure that your script creates a VM from image with friendly name 'Ubuntu2204' and try again." 
+        throw "Virtual Machine uses wrong OS image. Please make sure that your script creates a VM from image with friendly name 'Ubuntu2404' and try again."
     }
 
-    if ($virtualMachine.properties.hardwareProfile.vmSize -eq "Standard_B1s") { 
+    if ($virtualMachine.properties.hardwareProfile.vmSize -eq "Standard_B2ats_v2") {
         Write-Output "`u{2705} Checked Virtual Machine size - OK"
-    } else { 
+    } else {
         Write-Output `u{1F914}
-        throw "Virtual Machine size is not set to B1s. Please make sure that your script creates a VM with size B1s and try again."
+        throw "Virtual Machine size is not set to Standard_B2ats_v2. Please make sure that your script creates a VM with size Standard_B2ats_v2 and try again."
     }
 }
 
